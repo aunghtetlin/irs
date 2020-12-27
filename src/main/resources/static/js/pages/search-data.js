@@ -35,11 +35,13 @@ function getInformations(searchCondition, searchValue) {
 				insertSearchResult(searchValue, data.length);
 		    	for (var key in data) {
 				   if (data.hasOwnProperty(key)) {
+				   		title = data[key].title;
+				   		description = data[key].description;
 				   		removeStopWords(searchValue).forEach(function(value) {
-						    title = data[key].title.replace(new RegExp('('+ value +')','ig'), '<span class=\"highlight\">$1</span>');
-				   			description = data[key].description.replace(new RegExp('('+ value +')','ig'), '<span class=\"highlight\">$1</span>');
-				   			insertInformation(data[key].id, title, description);
+						    title = title.replace(new RegExp('('+ value +')','ig'), '<span class=\"highlight\">$1</span>');
+				   			description = description.replace(new RegExp('('+ value +')','ig'), '<span class=\"highlight\">$1</span>');
 						});
+						insertInformation(data[key].id, title, description);
 				   }
 				}
 			}
