@@ -1,0 +1,27 @@
+[
+	{
+		"title": "What is Java?",
+		"description": "What is Java?",
+		"content": "Java is a cross-platform object-oriented programming language that was released by Sun Microsystems in the year 1995. Today, Java is needed to run various applications such as games, social media applications, audio and video applications, etc."
+	},
+	{
+		"title": "What is PHP?",
+		"description": "What is PHP?",
+		"content": "PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML."
+	},
+	{
+		"title": "What is JS?",
+		"description": "What is JS?",
+		"content": "JavaScript is the Programming Language for the Web. JavaScript can update and change both HTML and CSS. JavaScript can calculate, manipulate and validate data."
+	},
+	{
+		"title": "Which is better Java or PHP?",
+		"description": "Which is better Java or PHP?",
+		"content": "Looking at the benefits provided by both Java and PHP, it's clear they are both very powerful. However, many programmers that use both languages will tell you PHP is the better choice. The main reason programmers choose PHP over Java is the speed. ... When using Java, it's best to have a dedicated server for your hosting."
+	},
+	{
+		"title": "Is PHP faster than Java?",
+		"description": "Is PHP faster than Java?",
+		"content": "Java is a compiled language (sort of) and as such, is faster than PHP. However, in-practice PHP is faster on the web (usually). Because PHP is designed for the web."
+	}
+]

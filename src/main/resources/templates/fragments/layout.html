@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">IRS</title>
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport" />
+
+<link rel="shortcut icon" href="#" th:href="@{/img/aiaicon.ico}"
+	type="image/x-icon">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="#" th:href="@{/css/AdminLTE.min.css}" />
+
+<!-- custom style -->
+<link rel="stylesheet" href="#" th:href="@{/css/style.css}" />
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+
+
+<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<!-- jQuery -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="#" th:src="@{/js/jquery.validate.bootstrap.js}"></script>
+<script src="#" th:src="@{/js/app.min.js}"></script>
+<script src="#" th:src="@{/js/jquery.slimscroll.min.js}"></script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var menudd = Cookies.get('menu-dd');
+
+		if (menudd != null) {
+			$("#" + menudd).addClass("active");
+		} else {
+			Cookies.set('menu-dd', "user");
+		}
+
+		$('ul.sidebar-menu li a').filter(function() {
+			return this.href == window.location;
+		}).parent().addClass('active');
+
+		$(".treeview").each(function() {
+			$(this).click(function() {
+				$(this.id).addClass("active");
+				$("#" + Cookies.get('menu-dd')).removeClass("active");
+				Cookies.set('menu-dd', this.id);
+			});
+		});
+	});
+</script>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini fuelux">
+	<div class="wrapper">
+		<!-- Main Header -->
+		<header class="main-header">
+			<!-- Logo -->
+			<a href="#" th:href="@{/}" class="logo"> <span class="logo-mini"><b>IRS</b></span>
+				<!-- logo for regular state and mobile devices --> <span
+				class="logo-lg"> <!-- logo for regular state and mobile devices -->
+				<span class="nav-logo"><b>IR System</b></span>
+			</span>
+			</a>
+
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+					role="button"> <span class="sr-only">Toggle navigation</span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu"><a
+							class="dropdown-toggle" data-toggle="dropdown" href="#"> <img
+								alt="User Image" class="user-image"
+								th:src="@{/img/user2-160x160.jpg}" /> <span class="hidden-xs"><span>User Name</span></span>
+						</a>
+							<ul class="dropdown-menu">
+								<!-- User image -->
+								<li class="user-header"><img alt="User Image"
+									class="img-circle" th:src="@{/img/user2-160x160.jpg}" /> <span>User Name</span></li>
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="text-center">
+										<form method="post" th:action="@{/}"
+											style="margin: 5px; padding: 0px;">
+											<button class="btn btn-aia" type="submit">Logout</button>
+										</form>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel"></div>
+
+				<!-- Sidebar Menu -->
+				<ul class="sidebar-menu">
+					<li>
+						<a th:href="@{/}"> <i class="fa fa-dashboard"></i>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{/informations}"> <i class="fa fa-book"></i>
+							<span>Informations</span>
+						</a>
+					</li>
+				</ul>
+				<!-- /.sidebar-menu -->
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<section class="content-header" layout:fragment="breadcrumb"></section>
+			<!-- Content Header (Page header) -->
+			<!-- Main content -->
+			<section class="content" layout:fragment="content">Contents</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<strong> &copy; 2020</strong>
+		</footer>
+		<div class="control-sidebar-bg"></div>
+	</div>
+
+	<!-- Information Modal Start -->
+	<div id="messageModal" class="modal fade" role="dialog"
+		th:fragment="infoModal">
+		<div class="modal-dialog model-sm">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Information Message</h4>
+				</div>
+				<div class="modal-body">
+					<p id="messageText"></p>
+				</div>
+				<div class="modal-footer">
+					<a class="btn btn-irs" data-dismiss="modal">Ok</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Information Modal End -->
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+	<!--Bootstrap Select-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+</body>
+</html>
